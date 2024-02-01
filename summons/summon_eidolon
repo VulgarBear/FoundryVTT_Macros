@@ -1,0 +1,33 @@
+// Last Updated: 1/31/24
+// Author: VulgarBear
+
+let [summon] = await warpgate.spawn("<token_name>", { token: { alpha: 0 }})
+
+let config = {
+    size:1,
+    icon: '<image_path>',
+    label: 'Summon Eidolon',
+    tag: 'summon_eidolon',
+    t: 'circle',
+    drawIcon: true,
+    drawOutline: true,
+    interval: -1,
+    rememberControlled: true,
+}
+
+//let position = await warpgate.crosshairs.show(config);
+
+new Sequence()
+
+.wait(50)
+
+.effect()
+  .file('jb2a.bless.400px.intro.yellow')
+	.atLocation(summon)
+	.scaleToObject(4)
+.wait(500)
+.animation()
+  .on(summon)
+  .fadeIn(400, {ease: "easeOutCirc", delay: 100})
+
+.play()
